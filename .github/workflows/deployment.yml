@@ -3,7 +3,7 @@ name: Deploy to Render
 on:
   push:
     branches:
-      - main   # deploy when pushing to main branch
+      - main   # change if you deploy from a different branch
 
 jobs:
   deploy:
@@ -18,5 +18,5 @@ jobs:
           curl -X POST \
           -H "Authorization: Bearer ${{ secrets.RENDER_API_KEY }}" \
           -H "Content-Type: application/json" \
-          -d '{"clearCache": false}' \
+          -d "{\"clearCache\":false}" \
           https://api.render.com/v1/services/${{ secrets.RENDER_SERVICE_ID }}/deploys
